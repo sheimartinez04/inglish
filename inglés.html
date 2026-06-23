@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inglés Técnico – Guía Definitiva para el Parcial | UTEC</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d2e;
+    --surface2: #242840;
+    --surface3: #2e3255;
+    --accent: #5b8af5;
+    --accent2: #7c5bf5;
+    --accent3: #f55b8a;
+    --accent4: #5bf5c3;
+    --accent5: #f5c25b;
+    --text: #e8eaf6;
+    --text2: #9fa8da;
+    --text3: #7986cb;
+    --white: #ffffff;
+    --border: rgba(91,138,245,0.2);
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ═══════════════════════════════ TYPOGRAPHY ═══════════════════════════════ */
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+  h3 { font-size: 1.1rem; font-weight: 700; }
+  h4 { font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+  
+  /* ═══════════════════════════════ LAYOUT ═══════════════════════════════ */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  
+  section { padding: 60px 0; }
+  
+  /* ═══════════════════════════════ NAV ═══════════════════════════════ */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15,17,23,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 8px;
+    overflow-x: auto; padding: 12px 0;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    white-space: nowrap;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* ═══════════════════════════════ COVER ═══════════════════════════════ */
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    background: linear-gradient(135deg, #0f1117 0%, #1a1040 50%, #0f1117 100%);
+    position: relative; overflow: hidden;
+    padding: 60px 24px;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(91,138,245,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(124,91,245,0.12) 0%, transparent 70%);
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+  .cover-badge {
+    display: inline-block;
+    background: rgba(91,138,245,0.2);
+    border: 1px solid rgba(91,138,245,0.4);
+    color: var(--accent);
+    padding: 6px 16px; border-radius: 20px;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .cover h1 { color: white; margin-bottom: 12px; line-height: 1.05; }
+  .cover h1 span { color: var(--accent); }
+  .cover-subtitle {
+    font-size: 1.1rem; color: var(--text2); margin-bottom: 40px; max-width: 600px;
+  }
+  .cover-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+  .tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 8px 16px; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 600; color: var(--text2);
+  }
+  .cover-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-number { font-size: 2rem; font-weight: 900; color: var(--accent); }
+  .stat-label { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ═══════════════════════════════ INDEX ═══════════════════════════════ */
+  .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .index-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px;
+    transition: all 0.2s;
+    text-decoration: none; color: var(--text);
+  }
+  .index-item:hover { background: var(--surface2); border-color: var(--accent); transform: translateY(-2px); }
+  .index-num {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 800; flex-shrink: 0;
+  }
+  .index-title { font-weight: 600; font-size: 0.88rem; }
+
+  /* ═══════════════════════════════ SECTION HEADERS ═══════════════════════════════ */
+  .section-header {
+    display: flex; align-items: flex-start; gap: 20px;
+    margin-bottom: 40px; padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .module-badge {
+    background: var(--accent);
+    color: white; font-weight: 800;
+    padding: 8px 16px; border-radius: 8px;
+    font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.08em; white-space: nowrap;
+    margin-top: 4px;
+  }
+  .module-badge.pink { background: var(--accent3); }
+  .module-badge.purple { background: var(--accent2); }
+  .module-badge.teal { background: #0891b2; }
+  .module-badge.green { background: #059669; }
+  .module-badge.orange { background: #d97706; }
+  .module-badge.red { background: #dc2626; }
+
+  /* ═══════════════════════════════ CARDS ═══════════════════════════════ */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+  /* ═══════════════════════════════ CALLOUT BOXES ═══════════════════════════════ */
+  .box {
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    border-left: 4px solid;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .box-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+  .box.important { background: rgba(245,91,138,0.08); border-color: var(--accent3); }
+  .box.tip { background: rgba(91,245,195,0.08); border-color: var(--accent4); }
+  .box.error { background: rgba(245,192,91,0.08); border-color: var(--accent5); }
+  .box.trick { background: rgba(91,138,245,0.08); border-color: var(--accent); }
+  .box.summary { background: rgba(124,91,245,0.08); border-color: var(--accent2); }
+  .box-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .box.important .box-label { color: var(--accent3); }
+  .box.tip .box-label { color: var(--accent4); }
+  .box.error .box-label { color: var(--accent5); }
+  .box.trick .box-label { color: var(--accent); }
+  .box.summary .box-label { color: var(--accent2); }
+
+  /* ═══════════════════════════════ TABLES ═══════════════════════════════ */
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--surface2);
+    padding: 12px 16px; text-align: left;
+    font-size: 0.78rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text2);
+  }
+  th:first-child { border-radius: 8px 0 0 0; }
+  th:last-child { border-radius: 0 8px 0 0; }
+  td {
+    padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.88rem;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  tr:hover td { background: rgba(91,138,245,0.06); }
+  .en { color: var(--accent); font-weight: 600; }
+  .es { color: var(--accent4); }
+
+  /* ═══════════════════════════════ FLOW DIAGRAM ═══════════════════════════════ */
+  .flow {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 8px; padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+  }
+  .flow-step {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600; font-size: 0.88rem;
+    text-align: center;
+  }
+  .flow-arrow { color: var(--accent); font-size: 1.2rem; font-weight: 700; }
+
+  /* ═══════════════════════════════ TEXT ANALYSIS ═══════════════════════════════ */
+  .text-block {
+    background: var(--surface2);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    border-left: 4px solid var(--accent);
+    font-style: italic;
+    margin-bottom: 12px;
+    font-size: 0.92rem;
+    color: var(--text2);
+  }
+  .analysis-label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem; font-weight: 800;
+    padding: 2px 10px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  /* ═══════════════════════════════ VOCAB GRID ═══════════════════════════════ */
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .vocab-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .vocab-en { font-weight: 700; color: var(--accent); font-size: 0.92rem; }
+  .vocab-es { color: var(--text2); font-size: 0.82rem; margin-top: 2px; }
+
+  /* ═══════════════════════════════ WORD FORMATION ═══════════════════════════════ */
+  .word-pill {
+    display: inline-flex; align-items: center; gap: 0;
+    margin: 4px; border-radius: 6px; overflow: hidden;
+    font-size: 0.85rem; font-weight: 600;
+  }
+  .pill-prefix { background: rgba(124,91,245,0.3); color: #c4b5fd; padding: 5px 10px; }
+  .pill-root { background: rgba(91,138,245,0.3); color: #a5b4fc; padding: 5px 10px; }
+  .pill-suffix { background: rgba(91,245,195,0.2); color: #6ee7b7; padding: 5px 10px; }
+
+  /* ═══════════════════════════════ STEPS ═══════════════════════════════ */
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+  }
+  .step-content h4 { color: var(--accent); margin-bottom: 4px; }
+  .step-content p { font-size: 0.88rem; color: var(--text2); }
+
+  /* ═══════════════════════════════ COMPARISON TABLE ═══════════════════════════════ */
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 20px;
+  }
+  .compare-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .compare-header {
+    padding: 14px 20px;
+    font-weight: 800; font-size: 0.88rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .compare-header.blue { background: rgba(91,138,245,0.2); color: var(--accent); }
+  .compare-header.pink { background: rgba(245,91,138,0.2); color: var(--accent3); }
+  .compare-body { padding: 16px 20px; }
+  .compare-body li { 
+    color: var(--text2); font-size: 0.88rem; margin-bottom: 8px;
+    padding-left: 16px; position: relative;
+    list-style: none;
+  }
+  .compare-body li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+  /* ═══════════════════════════════ TECHHELP INFOGRAPHIC ═══════════════════════════════ */
+  .infographic { display: flex; flex-direction: column; gap: 0; }
+  .info-row {
+    display: grid; grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label {
+    padding: 18px 20px;
+    font-weight: 800; font-size: 0.88rem;
+    display: flex; align-items: center; gap: 10px;
+    border-right: 1px solid var(--border);
+  }
+  .info-content { padding: 16px 20px; font-size: 0.88rem; color: var(--text2); }
+  .info-content ul { list-style: none; }
+  .info-content ul li { padding: 3px 0; padding-left: 16px; position: relative; }
+  .info-content ul li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
+
+  /* ═══════════════════════════════ Q&A ═══════════════════════════════ */
+  .qa-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .qa-q {
+    background: rgba(91,138,245,0.1);
+    padding: 14px 20px;
+    font-weight: 700; font-size: 0.92rem;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+  }
+  .qa-translation {
+    padding: 8px 20px;
+    font-size: 0.8rem; color: var(--text3);
+    border-bottom: 1px solid var(--border);
+    font-style: italic;
+  }
+  .qa-a { padding: 14px 20px; font-size: 0.88rem; color: var(--text2); }
+
+  /* ═══════════════════════════════ CHEAT SHEET ═══════════════════════════════ */
+  .cheat { 
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 2px solid var(--accent); border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+  .cheat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .cheat-section h4 { color: var(--accent); margin-bottom: 10px; }
+  .cheat-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 8px; font-size: 0.85rem; color: var(--text2);
+  }
+  .cheat-bullet { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+  /* ═══════════════════════════════ EXERCISE ═══════════════════════════════ */
+  .exercise {
+    background: rgba(91,245,195,0.05);
+    border: 1px solid rgba(91,245,195,0.2);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .exercise-num { color: var(--accent4); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 8px; }
+  .exercise p { font-size: 0.9rem; margin-bottom: 10px; }
+  .answer {
+    background: rgba(91,245,195,0.08);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem; color: var(--accent4);
+    margin-top: 8px;
+  }
+  .answer-label { font-weight: 700; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 4px; color: var(--text3); }
+
+  /* ═══════════════════════════════ DIVIDER ═══════════════════════════════ */
+  .module-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+    margin: 0;
+  }
+
+  /* ═══════════════════════════════ HIGHLIGHTS ═══════════════════════════════ */
+  .highlight { color: var(--accent); font-weight: 700; }
+  .highlight-pink { color: var(--accent3); font-weight: 700; }
+  .highlight-teal { color: var(--accent4); font-weight: 700; }
+  .highlight-yellow { color: var(--accent5); font-weight: 700; }
+
+  /* ═══════════════════════════════ PRIVACY PARAGRAPHS ═══════════════════════════════ */
+  .para-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .para-num {
+    background: var(--accent);
+    color: white; font-weight: 800;
+    padding: 10px 20px; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .para-body { padding: 20px; }
+  .para-original { 
+    font-style: italic; color: var(--text2); font-size: 0.88rem;
+    border-left: 3px solid var(--accent); padding-left: 14px;
+    margin-bottom: 12px;
+  }
+  .para-translation { 
+    color: var(--accent4); font-size: 0.88rem; 
+    border-left: 3px solid var(--accent4); padding-left: 14px;
+    margin-bottom: 12px;
+  }
+  .para-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 12px; }
+  .para-meta-item { 
+    background: var(--surface2); border-radius: 8px; padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+  .para-meta-label { color: var(--text3); font-size: 0.7rem; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+
+  /* ═══════════════════════════════ SCROLL TO TOP ═══════════════════════════════ */
+  .back-top {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--accent); color: white;
+    border: none; border-radius: 50%; width: 44px; height: 44px;
+    font-size: 1.2rem; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(91,138,245,0.4);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .back-top:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(91,138,245,0.5); }
+
+  /* ═══════════════════════════════ RESPONSIVE ═══════════════════════════════ */
+  @media (max-width: 640px) {
+    .compare { grid-template-columns: 1fr; }
+    .info-row { grid-template-columns: 1fr; }
+    .info-label { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+  
+  /* ═══════════════════════════════ PRINT ═══════════════════════════════ */
+  @media print {
+    nav, .back-top { display: none; }
+    body { background: white; color: black; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ PORTADA ═══════ -->
+<section class="cover" id="top">
+  <div class="cover-content">
+    <div class="cover-badge">UTEC · Tecnólogo en Informática · 1er Semestre</div>
+    <h1>Inglés Técnico<br><span>Guía Definitiva</span><br>para el Parcial</h1>
+    <p class="cover-subtitle">Reading Comprehension · Technical English · Material Completo del Curso · Incluye textos TechHelp y Privacy in 2026</p>
+    <div class="cover-tags">
+      <span class="tag">📖 Reading Comprehension</span>
+      <span class="tag">🔑 Context Clues</span>
+      <span class="tag">🏗️ Word Formation</span>
+      <span class="tag">📝 Sentence Analysis</span>
+      <span class="tag">🔍 Main Idea</span>
+      <span class="tag">💻 Technical Vocabulary</span>
+    </div>
+    <div class="cover-stats">
+      <div class="stat-card"><div class="stat-number">13</div><div class="stat-label">Módulos</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Textos Clave</div></div>
+      <div class="stat-card"><div class="stat-number">100+</div><div class="stat-label">Palabras Clave</div></div>
+      <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Ejercicios</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-btn" href="#indice">📋 Índice</a>
+    <a class="nav-btn" href="#m1">01 RC</a>
+    <a class="nav-btn" href="#m2">02 Gen.Meaning</a>
+    <a class="nav-btn" href="#m3">03 Main Idea</a>
+    <a class="nav-btn" href="#m4">04 Context Clues</a>
+    <a class="nav-btn" href="#m5">05 Word Formation</a>
+    <a class="nav-btn" href="#m6">06 Vocabulary</a>
+    <a class="nav-btn" href="#m7">07 Reference Words</a>
+    <a class="nav-btn" href="#m8">08 Sentences</a>
+    <a class="nav-btn" href="#m9">09 TechHelp</a>
+    <a class="nav-btn" href="#m10">10 Privacy 2026</a>
+    <a class="nav-btn" href="#m11">11 Preguntas</a>
+    <a class="nav-btn" href="#m12">12 Simulacros</a>
+    <a class="nav-btn" href="#m13">13 Chuleta</a>
+  </div>
+</nav>
+
+<!-- ═══════ ÍNDICE ═══════ -->
+<section id="indice">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge" style="background:#334155">📋</div>
+      <div>
+        <h4 style="color:var(--text3)">Contenido</h4>
+        <h2>Índice General</h2>
+      </div>
+    </div>
+    <div class="index-grid">
+      <a class="index-item" href="#m1"><div class="index-num">01</div><div><div class="index-title">Reading Comprehension</div></div></a>
+      <a class="index-item" href="#m2"><div class="index-num">02</div><div><div class="index-title">General Meaning</div></div></a>
+      <a class="index-item" href="#m3"><div class="index-num">03</div><div><div class="index-title">Main Idea y Supporting Details</div></div></a>
+      <a class="index-item" href="#m4"><div class="index-num">04</div><div><div class="index-title">Context Clues</div></div></a>
+      <a class="index-item" href="#m5"><div class="index-num">05</div><div><div class="index-title">Word Formation</div></div></a>
+      <a class="index-item" href="#m6"><div class="index-num">06</div><div><div class="index-title">Technical Vocabulary</div></div></a>
+      <a class="index-item" href="#m7"><div class="index-num">07</div><div><div class="index-title">Reference Words</div></div></a>
+      <a class="index-item" href="#m8"><div class="index-num">08</div><div><div class="index-title">Sentence Analysis</div></div></a>
+      <a class="index-item" href="#m9"><div class="index-num">09</div><div><div class="index-title">TechHelp – Análisis Completo</div></div></a>
+      <a class="index-item" href="#m10"><div class="index-num">10</div><div><div class="index-title">Privacy in 2026 – Análisis Completo</div></div></a>
+      <a class="index-item" href="#m11"><div class="index-num">11</div><div><div class="index-title">Preguntas Típicas de Parcial</div></div></a>
+      <a class="index-item" href="#m12"><div class="index-num">12</div><div><div class="index-title">Simulacros Resueltos</div></div></a>
+      <a class="index-item" href="#m13"><div class="index-num">13</div><div><div class="index-title">Chuleta Final</div></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 1 – READING COMPREHENSION ═══════ -->
+<section id="m1">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge">MÓDULO 01</div>
+      <div>
+        <h4 style="color:var(--text3)">The Basics</h4>
+        <h2>Reading Comprehension</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:12px">¿Qué es Reading Comprehension (R.C.)?</h3>
+      <p style="color:var(--text2);font-size:0.92rem"><span class="highlight">Reading Comprehension</span> = Comprensión Lectora. Es la habilidad de leer un texto en inglés y entender su mensaje, sin necesidad de traducir cada palabra. El objetivo es captar el sentido general, encontrar la idea principal y los detalles que la apoyan.</p>
+    </div>
+
+    <h3 style="margin-bottom:16px;color:var(--text2)">¿Qué implica R.C.?</h3>
+    <div class="card-grid" style="margin-bottom:24px">
+      <div class="card" style="margin:0">
+        <div style="font-size:1.5rem;margin-bottom:8px">🌐</div>
+        <h4 style="color:var(--accent);margin-bottom:6px">Understanding a text</h4>
+        <p style="color:var(--text2);font-size:0.85rem">Entender un texto completo</p>
+      </div>
+      <div class="card" style="margin:0">
+        <div style="font-size:1.5rem;margin-bottom:8px">💡</div>
+        <h4 style="color:var(--accent);margin-bottom:6px">Getting the general meaning</h4>
+        <p style="color:var(--text2);font-size:0.85rem">Obtener el significado general</p>
+      </div>
+      <div class="card" style="margin:0">
+        <div style="font-size:1.5rem;margin-bottom:8px">🎯</div>
+        <h4 style="color:var(--accent);margin-bottom:6px">Identifying important info</h4>
+        <p style="color:var(--text2);font-size:0.85rem">Identificar información importante</p>
+      </div>
+      <div class="card" style="margin:0">
+        <div style="font-size:1.5rem;margin-bottom:8px">🔗</div>
+        <h4 style="color:var(--accent);margin-bottom:6px">Connecting ideas</h4>
+        <p style="color:var(--text2);font-size:0.85rem">Conectar ideas dentro del texto</p>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px;color:var(--text2)">Estrategia Paso a Paso para el Examen</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h4>Pre-read (Pre-leer)</h4><p>Mirá el título, subtítulos, imágenes y palabras en negrita antes de leer. Esto te da contexto.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h4>Skim (Lectura rápida)</h4><p>Leé rápido todo el texto para conseguir el "big picture" (idea general). No te pares en cada palabra.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h4>Leer las preguntas</h4><p>Leé las preguntas del parcial ANTES de releer el texto. Así sabés qué información buscar.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Scan (Búsqueda dirigida)</h4><p>Volvé al texto y buscá específicamente la información que pide cada pregunta.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><h4>Responder con evidencia</h4><p>Basá tus respuestas en el texto. Usá frases del texto o parafraseá. No inventes.</p></div></div>
+    </div>
+
+    <div class="box important" style="margin-top:24px">
+      <div class="box-icon">⚠️</div>
+      <div><div class="box-label">Importante para el parcial</div>
+      <p style="font-size:0.88rem">En el Inglés Técnico de UTEC <strong>no necesitás traducir perfectamente</strong>. Lo que importa es demostrar que entendiste el mensaje. Usá el contexto y las estrategias para deducir el significado de palabras desconocidas.</p></div>
+    </div>
+
+    <div class="box error">
+      <div class="box-icon">❌</div>
+      <div><div class="box-label">Error Frecuente</div>
+      <p style="font-size:0.88rem">Traducir palabra por palabra. Esto hace que pierdas tiempo y que la oración no tenga sentido. Leé en bloques de ideas, no en palabras sueltas.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 2 – GENERAL MEANING ═══════ -->
+<section id="m2">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge purple">MÓDULO 02</div>
+      <div>
+        <h4 style="color:var(--text3)">Primer paso</h4>
+        <h2>General Meaning</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">¿Qué es el General Meaning?</h3>
+      <p style="color:var(--text2);font-size:0.92rem"><span class="highlight">General Meaning</span> = Significado General. Es la idea global del texto. Se trata de entender <em>de qué trata el texto en general</em>, sin enfocarse en cada palabra. <strong>No es traducir todo</strong>, sino captar el mensaje principal.</p>
+    </div>
+
+    <h3 style="margin:24px 0 14px;color:var(--text2)">Cómo encontrarlo — Diagrama de Proceso</h3>
+    <div class="flow">
+      <div class="flow-step">📌 Título del texto</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">🔁 Palabras repetidas</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">🖼️ Imágenes / subtítulos</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">💡 Tema general</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="background:rgba(91,138,245,0.2);border-color:var(--accent);color:white">✅ General Meaning</div>
+    </div>
+
+    <h3 style="margin:24px 0 14px;color:var(--text2)">Tips para el General Meaning</h3>
+    <div class="card-grid">
+      <div class="card" style="margin:0"><span class="highlight">🚫 No traduzcas</span> palabra por palabra en la primera lectura.</div>
+      <div class="card" style="margin:0"><span class="highlight">⚡ Leé rápido</span> primero para obtener el "big picture" (panorama general).</div>
+      <div class="card" style="margin:0"><span class="highlight">👀 Mirá</span> el título, las imágenes y las palabras repetidas.</div>
+      <div class="card" style="margin:0"><span class="highlight">❓ Preguntate:</span> "¿De qué trata este texto en general?"</div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Ejemplo Resuelto</h3>
+    <div class="text-block">
+      "Computers are used in many areas such as education, business, and communication. They are essential for modern infrastructure, support complex applications, and enable global interconnectivity."
+    </div>
+    <div style="color:var(--text3);font-size:0.82rem;margin-bottom:8px;font-style:italic">
+      "Las computadoras se usan en muchas áreas como educación, negocios y comunicación. Son esenciales para la infraestructura moderna, apoyan aplicaciones complejas y permiten la interconectividad global."
+    </div>
+    <div class="answer">
+      <div class="answer-label">✅ General Meaning</div>
+      The text is about <strong>how computers are used in different areas</strong>. / El texto trata sobre <strong>cómo se usan las computadoras en diferentes áreas</strong>.
+    </div>
+
+    <div class="box tip" style="margin-top:20px">
+      <div class="box-icon">💡</div>
+      <div><div class="box-label">Tip de Examen</div>
+      <p style="font-size:0.88rem">Para responder "What is the text about?" usá la fórmula: <strong>"The text is about + [tema]"</strong> o <strong>"The text deals with + [tema]"</strong>. Una oración es suficiente.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 3 – MAIN IDEA y SUPPORTING DETAILS ═══════ -->
+<section id="m3">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge pink">MÓDULO 03</div>
+      <div>
+        <h4 style="color:var(--text3)">Estructura del texto</h4>
+        <h2>Main Idea & Supporting Details</h2>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="compare-col">
+        <div class="compare-header blue">🎯 Main Idea / Idea Principal</div>
+        <div class="compare-body">
+          <li>Lo más importante del texto (o párrafo)</li>
+          <li>El mensaje central que el autor quiere transmitir</li>
+          <li>Suele estar en la primera o última oración del párrafo</li>
+          <li>Si la quitás, el texto pierde su sentido principal</li>
+          <li><strong>Responde a:</strong> "¿Cuál es el punto más importante?"</li>
+        </div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-header pink">📋 Supporting Details / Detalles de Apoyo</div>
+        <div class="compare-body">
+          <li>Información que explica o desarrolla la idea principal</li>
+          <li>Pueden ser: ejemplos, hechos, razones, descripciones</li>
+          <li>Sin la idea principal, los detalles no tienen sentido</li>
+          <li>Suelen estar en el medio del párrafo</li>
+          <li><strong>Responden a:</strong> "¿Por qué? ¿Cómo? ¿Qué ejemplo?"</li>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow" style="margin-bottom:24px">
+      <div class="flow-step" style="background:rgba(91,138,245,0.2)">GENERAL IDEA<br><small>Tema del texto</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="background:rgba(124,91,245,0.2)">MAIN IDEA<br><small>Idea principal del párrafo</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" style="background:rgba(245,91,138,0.2)">SUPPORTING DETAIL 1</div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-step" style="background:rgba(245,91,138,0.2)">SUPPORTING DETAIL 2</div>
+    </div>
+
+    <h3 style="margin-bottom:16px;color:var(--text2)">Cómo identificar la Main Idea</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h4>Leé el texto completo primero</h4><p>No te pares en cada oración. Buscá la idea que se repite o que se enfatiza más.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h4>Preguntate: ¿Qué se repite?</h4><p>Las palabras y conceptos que aparecen varias veces generalmente apuntan a la idea principal.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h4>Verificá: ¿Es demasiado específico?</h4><p>Un supporting detail responde "cómo" o "por qué". La main idea responde "qué es lo más importante".</p></div></div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Ejemplo — Texto TechHelp</h3>
+    <div class="text-block">
+      "At the Instituto Tecnológico, a group of first-year students noticed a common problem: many classrooms had old computers, slow internet, and students often forgot their passwords. To solve this, they created a small digital project called TechHelp."
+    </div>
+    <div class="para-meta">
+      <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Students created TechHelp to solve technology problems at school. / Los estudiantes crearon TechHelp para resolver problemas tecnológicos en la escuela.</div>
+      <div class="para-meta-item"><div class="para-meta-label">📋 Supporting Detail 1</div>Old computers and slow internet were the problems. / Las computadoras viejas e internet lento eran el problema.</div>
+      <div class="para-meta-item"><div class="para-meta-label">📋 Supporting Detail 2</div>Students forgot their passwords. / Los estudiantes olvidaban sus contraseñas.</div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Ejemplo — Texto Privacy in 2026</h3>
+    <div class="text-block">
+      "In 2026, privacy is no longer defined by the simple act of hiding an IP address or blocking cookies. Modern privacy depends on understanding how digital systems collect, connect, and analyze information across platforms and devices."
+    </div>
+    <div class="para-meta">
+      <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Hiding an IP is not enough for privacy today. / Hoy en día, esconder una IP no es suficiente para la privacidad.</div>
+      <div class="para-meta-item"><div class="para-meta-label">📋 Supporting Detail 1</div>Digital systems collect info across platforms. / Los sistemas digitales recopilan información en varias plataformas.</div>
+      <div class="para-meta-item"><div class="para-meta-label">📋 Supporting Detail 2</div>Blocking cookies alone is not enough. / Bloquear cookies solo no es suficiente.</div>
+    </div>
+
+    <div class="box trick">
+      <div class="box-icon">🔧</div>
+      <div><div class="box-label">Truco Rápido</div>
+      <p style="font-size:0.88rem">Si te preguntan <em>"What is the main idea?"</em>, pensá: ¿cuál es la ÚNICA frase que resume MEJOR todo el párrafo? Esa es la main idea. Los detalles son todo lo demás que la explica o ejemplifica.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 4 – CONTEXT CLUES ═══════ -->
+<section id="m4">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge teal">MÓDULO 04</div>
+      <div>
+        <h4 style="color:var(--text3)">Estrategia clave</h4>
+        <h2>Context Clues — Pistas de Contexto</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">¿Qué son las Context Clues?</h3>
+      <p style="color:var(--text2);font-size:0.92rem">Son pistas dentro del texto que te ayudan a deducir el significado de palabras desconocidas <strong>sin usar el diccionario</strong>. En textos técnicos en inglés es una habilidad FUNDAMENTAL.</p>
+    </div>
+
+    <h3 style="margin:24px 0 16px;color:var(--text2)">Los 4 Tipos de Context Clues</h3>
+    
+    <div class="card" style="border-color:rgba(91,138,245,0.4)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="background:var(--accent);color:white;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:800">TIPO 1</span>
+        <h3 style="color:var(--accent)">DEFINITION (Definición)</h3>
+      </div>
+      <p style="color:var(--text2);font-size:0.88rem;margin-bottom:12px">El texto explica directamente qué significa la palabra. Señales: <span class="highlight">"is", "is called", "refers to", "means", "which is"</span>, comas o guiones que explican.</p>
+      <div class="text-block">"Encryption <strong>is a process that converts</strong> information into secret code."</div>
+      <div style="color:var(--text3);font-size:0.82rem;margin-bottom:8px;font-style:italic">"La encriptación <strong>es un proceso que convierte</strong> información en código secreto."</div>
+      <div class="answer"><div class="answer-label">💡 Clue tipo DEFINITION</div>La palabra "Encryption" se define directamente después del verbo "is". → Encryption = proceso que convierte info en código secreto.</div>
+    </div>
+
+    <div class="card" style="border-color:rgba(91,245,195,0.4)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="background:#059669;color:white;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:800">TIPO 2</span>
+        <h3 style="color:var(--accent4)">EXAMPLE (Ejemplo)</h3>
+      </div>
+      <p style="color:var(--text2);font-size:0.88rem;margin-bottom:12px">El texto da ejemplos de la palabra. Señales: <span class="highlight-teal">"such as", "for example", "including", "like", "e.g."</span></p>
+      <div class="text-block">"Peripheral devices <strong>such as</strong> printers, scanners and webcams can be connected externally."</div>
+      <div style="color:var(--text3);font-size:0.82rem;margin-bottom:8px;font-style:italic">"Dispositivos periféricos <strong>como</strong> impresoras, escáneres y cámaras web se pueden conectar externamente."</div>
+      <div class="answer"><div class="answer-label">💡 Clue tipo EXAMPLE</div>Los ejemplos (printers, scanners, webcams) me dicen que "peripheral devices" son dispositivos que se conectan a la computadora.</div>
+    </div>
+
+    <div class="card" style="border-color:rgba(245,192,91,0.4)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="background:#d97706;color:white;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:800">TIPO 3</span>
+        <h3 style="color:var(--accent5)">CONTRAST (Contraste)</h3>
+      </div>
+      <p style="color:var(--text2);font-size:0.88rem;margin-bottom:12px">El significado se entiende porque se contrasta con algo opuesto. Señales: <span class="highlight-yellow">"unlike", "but", "however", "although", "on the other hand", "instead of"</span></p>
+      <div class="text-block">"<strong>Unlike</strong> traditional hard drives, SSDs are faster and quieter."</div>
+      <div style="color:var(--text3);font-size:0.82rem;margin-bottom:8px;font-style:italic">"<strong>A diferencia de</strong> los discos duros tradicionales, los SSDs son más rápidos y silenciosos."</div>
+      <div class="answer"><div class="answer-label">💡 Clue tipo CONTRAST</div>"Unlike" indica contraste → los HDDs son lentos/ruidosos, los SSDs son lo opuesto = rápidos y silenciosos.</div>
+    </div>
+
+    <div class="card" style="border-color:rgba(245,91,138,0.4)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="background:#dc2626;color:white;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:800">TIPO 4</span>
+        <h3 style="color:var(--accent3)">INFERENCE (Inferencia)</h3>
+      </div>
+      <p style="color:var(--text2);font-size:0.88rem;margin-bottom:12px">El significado no se da directamente pero se puede deducir por la lógica de la oración o por conocimiento previo.</p>
+      <div class="text-block">"Sarah <strong>backed up</strong> her files because she was afraid of losing important data."</div>
+      <div style="color:var(--text3);font-size:0.82rem;margin-bottom:8px;font-style:italic">"Sarah hizo una <strong>copia de seguridad</strong> de sus archivos porque tenía miedo de perder datos importantes."</div>
+      <div class="answer"><div class="answer-label">💡 Clue tipo INFERENCE</div>Si "back up" se hace para evitar perder datos → "back up" = guardar/hacer copia de seguridad de archivos.</div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Tabla Resumen de Context Clues</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipo</th><th>¿Qué hace el texto?</th><th>Palabras señal</th><th>Ejemplo</th></tr>
+        <tr><td class="en">Definition</td><td style="color:var(--text2)">Define directamente</td><td><code>is, means, refers to</code></td><td style="color:var(--text3);font-size:0.82rem">A firewall <em>is</em> a security system...</td></tr>
+        <tr><td class="en">Example</td><td style="color:var(--text2)">Da ejemplos</td><td><code>such as, like, e.g.</code></td><td style="color:var(--text3);font-size:0.82rem">devices <em>such as</em> printers...</td></tr>
+        <tr><td class="en">Contrast</td><td style="color:var(--text2)">Contrasta con opuesto</td><td><code>unlike, but, however</code></td><td style="color:var(--text3);font-size:0.82rem"><em>Unlike</em> HDDs, SSDs are faster...</td></tr>
+        <tr><td class="en">Inference</td><td style="color:var(--text2)">Se deduce por lógica</td><td>ninguna específica</td><td style="color:var(--text3);font-size:0.82rem">backed up files because afraid of losing...</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 5 – WORD FORMATION ═══════ -->
+<section id="m5">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge green">MÓDULO 05</div>
+      <div>
+        <h4 style="color:var(--text3)">Vocabulario técnico</h4>
+        <h2>Word Formation — Formación de Palabras</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">¿Por qué es importante?</h3>
+      <p style="color:var(--text2);font-size:0.92rem">Si conocés las partes de las palabras (prefijos, raíces, sufijos), podés deducir el significado de palabras que nunca viste antes. Es como tener superpoderes en el examen.</p>
+    </div>
+
+    <h3 style="margin:24px 0 16px;color:var(--text2)">Prefijos — Cambian el significado</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Prefijo</th><th>Significado</th><th>Ejemplo técnico</th><th>Traducción</th></tr>
+        <tr><td class="en">re-</td><td style="color:var(--text2)">de nuevo / otra vez</td><td><span class="word-pill"><span class="pill-prefix">re</span><span class="pill-root">use</span><span class="pill-suffix">able</span></span></td><td class="es">reusable = que se puede usar de nuevo</td></tr>
+        <tr><td class="en">un-</td><td style="color:var(--text2)">no / sin</td><td><span class="word-pill"><span class="pill-prefix">un</span><span class="pill-root">authorized</span></span></td><td class="es">unauthorized = no autorizado</td></tr>
+        <tr><td class="en">mis-</td><td style="color:var(--text2)">mal / incorrecto</td><td><span class="word-pill"><span class="pill-prefix">mis</span><span class="pill-root">inform</span><span class="pill-suffix">ation</span></span></td><td class="es">misinformation = información incorrecta</td></tr>
+        <tr><td class="en">multi-</td><td style="color:var(--text2)">muchos / múltiple</td><td><span class="word-pill"><span class="pill-prefix">multi</span><span class="pill-root">function</span><span class="pill-suffix">al</span></span></td><td class="es">multifunctional = con múltiples funciones</td></tr>
+        <tr><td class="en">cyber-</td><td style="color:var(--text2)">relacionado a internet/digital</td><td><span class="word-pill"><span class="pill-prefix">cyber</span><span class="pill-root">security</span></span></td><td class="es">cybersecurity = seguridad digital</td></tr>
+        <tr><td class="en">out-</td><td style="color:var(--text2)">más allá / antiguo</td><td><span class="word-pill"><span class="pill-prefix">out</span><span class="pill-root">dated</span></span></td><td class="es">outdated = desactualizado</td></tr>
+      </table>
+    </div>
+
+    <h3 style="margin:24px 0 16px;color:var(--text2)">Sufijos — Cambian la clase de palabra</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Sufijo</th><th>Clase</th><th>Significado</th><th>Ejemplo</th><th>Traducción</th></tr>
+        <tr><td class="en">-er / -or</td><td style="color:var(--text2)">Sustantivo</td><td style="color:var(--text2)">persona que hace algo</td><td><span class="word-pill"><span class="pill-root">program</span><span class="pill-suffix">mer</span></span></td><td class="es">programador</td></tr>
+        <tr><td class="en">-less</td><td style="color:var(--text2)">Adjetivo</td><td style="color:var(--text2)">sin / carente de</td><td><span class="word-pill"><span class="pill-root">wire</span><span class="pill-suffix">less</span></span></td><td class="es">sin cables = inalámbrico</td></tr>
+        <tr><td class="en">-able / -ible</td><td style="color:var(--text2)">Adjetivo</td><td style="color:var(--text2)">que puede ser / capaz de</td><td><span class="word-pill"><span class="pill-root">download</span><span class="pill-suffix">able</span></span></td><td class="es">que se puede descargar</td></tr>
+        <tr><td class="en">-ity</td><td style="color:var(--text2)">Sustantivo</td><td style="color:var(--text2)">estado / cualidad</td><td><span class="word-pill"><span class="pill-root">secur</span><span class="pill-suffix">ity</span></span></td><td class="es">seguridad</td></tr>
+        <tr><td class="en">-tion / -ation</td><td style="color:var(--text2)">Sustantivo</td><td style="color:var(--text2)">acción / resultado</td><td><span class="word-pill"><span class="pill-root">encrypt</span><span class="pill-suffix">ion</span></span></td><td class="es">encriptación</td></tr>
+        <tr><td class="en">-ing</td><td style="color:var(--text2)">Gerundio</td><td style="color:var(--text2)">acción en progreso</td><td><span class="word-pill"><span class="pill-root">track</span><span class="pill-suffix">ing</span></span></td><td class="es">rastreo / seguimiento</td></tr>
+      </table>
+    </div>
+
+    <h3 style="margin:24px 0 16px;color:var(--text2)">Compound Words — Palabras Compuestas</h3>
+    <p style="color:var(--text2);font-size:0.88rem;margin-bottom:16px">Se forman uniendo dos o más palabras. El significado generalmente es la combinación de ambas.</p>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-en">keyboard</div><div class="vocab-es">key (tecla) + board (tabla) → teclado</div></div>
+      <div class="vocab-card"><div class="vocab-en">password</div><div class="vocab-es">pass (pasar) + word (palabra) → contraseña</div></div>
+      <div class="vocab-card"><div class="vocab-en">website</div><div class="vocab-es">web + site (sitio) → sitio web</div></div>
+      <div class="vocab-card"><div class="vocab-en">touchscreen</div><div class="vocab-es">touch (tocar) + screen (pantalla) → pantalla táctil</div></div>
+      <div class="vocab-card"><div class="vocab-en">cloud-based</div><div class="vocab-es">cloud (nube) + based (basado) → basado en la nube</div></div>
+      <div class="vocab-card"><div class="vocab-en">open-source</div><div class="vocab-es">open (abierto) + source (fuente) → código abierto</div></div>
+      <div class="vocab-card"><div class="vocab-en">user-friendly</div><div class="vocab-es">user (usuario) + friendly (amigable) → fácil de usar</div></div>
+      <div class="vocab-card"><div class="vocab-en">password-protected</div><div class="vocab-es">password + protected (protegido) → protegido con contraseña</div></div>
+    </div>
+
+    <h3 style="margin:28px 0 16px;color:var(--text2)">Análisis del Examen — Palabras Reales del Parcial</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Palabra</th><th>Prefijo</th><th>Raíz</th><th>Sufijo</th><th>Significado</th></tr>
+        <tr><td class="en">cybersecurity</td><td style="color:#c4b5fd">cyber-</td><td style="color:#a5b4fc">secure/security</td><td style="color:#6ee7b7">-ity</td><td class="es">seguridad digital</td></tr>
+        <tr><td class="en">reusable</td><td style="color:#c4b5fd">re-</td><td style="color:#a5b4fc">use</td><td style="color:#6ee7b7">-able</td><td class="es">que se puede usar de nuevo</td></tr>
+        <tr><td class="en">misinformation</td><td style="color:#c4b5fd">mis-</td><td style="color:#a5b4fc">inform</td><td style="color:#6ee7b7">-ation</td><td class="es">información falsa o incorrecta</td></tr>
+        <tr><td class="en">programmer</td><td>—</td><td style="color:#a5b4fc">program</td><td style="color:#6ee7b7">-er</td><td class="es">persona que programa</td></tr>
+        <tr><td class="en">wireless</td><td>—</td><td style="color:#a5b4fc">wire</td><td style="color:#6ee7b7">-less</td><td class="es">sin cables</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 6 – TECHNICAL VOCABULARY ═══════ -->
+<section id="m6">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge orange">MÓDULO 06</div>
+      <div>
+        <h4 style="color:var(--text3)">Vocabulario esencial</h4>
+        <h2>Technical Vocabulary</h2>
+      </div>
+    </div>
+
+    <div class="box important">
+      <div class="box-icon">⚠️</div>
+      <div><div class="box-label">Importante para el parcial</div>
+      <p style="font-size:0.88rem">Estos términos técnicos aparecen en los textos del parcial (TechHelp y Privacy in 2026). Conocerlos te permite responder preguntas sobre vocabulario técnico y compound words.</p></div>
+    </div>
+
+    <h3 style="margin:24px 0 14px;color:var(--text2)">🖥️ Vocabulario — TechHelp</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Inglés</th><th>Español</th><th>Ejemplo</th></tr>
+        <tr><td class="en">app / web app</td><td class="es">aplicación web</td><td style="color:var(--text3);font-size:0.82rem">They created a web app called TechHelp.</td></tr>
+        <tr><td class="en">support request</td><td class="es">solicitud de soporte</td><td style="color:var(--text3);font-size:0.82rem">organize support requests</td></tr>
+        <tr><td class="en">technician</td><td class="es">técnico</td><td style="color:var(--text3);font-size:0.82rem">help the school technician work faster</td></tr>
+        <tr><td class="en">password</td><td class="es">contraseña</td><td style="color:var(--text3);font-size:0.82rem">students often forgot their passwords</td></tr>
+        <tr><td class="en">frozen screen</td><td class="es">pantalla congelada</td><td style="color:var(--text3);font-size:0.82rem">report problems: frozen screens</td></tr>
+        <tr><td class="en">broken cable</td><td class="es">cable roto</td><td style="color:var(--text3);font-size:0.82rem">broken cables, frozen screens, or Wi-Fi issues</td></tr>
+        <tr><td class="en">Wi-Fi issues</td><td class="es">problemas de Wi-Fi</td><td style="color:var(--text3);font-size:0.82rem">report problems: Wi-Fi issues</td></tr>
+        <tr><td class="en">recover access</td><td class="es">recuperar acceso</td><td style="color:var(--text3);font-size:0.82rem">less time trying to recover access to their accounts</td></tr>
+        <tr><td class="en">efficient</td><td class="es">eficiente</td><td style="color:var(--text3);font-size:0.82rem">small problems solved more efficiently</td></tr>
+        <tr><td class="en">organize</td><td class="es">organizar</td><td style="color:var(--text3);font-size:0.82rem">organize support requests</td></tr>
+      </table>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">🔒 Vocabulario — Privacy in 2026</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Inglés</th><th>Español</th><th>Ejemplo del texto</th></tr>
+        <tr><td class="en">IP address</td><td class="es">dirección IP</td><td style="color:var(--text3);font-size:0.82rem">hiding IP addresses was enough</td></tr>
+        <tr><td class="en">device fingerprinting</td><td class="es">huella digital del dispositivo</td><td style="color:var(--text3);font-size:0.82rem">rise of device fingerprinting</td></tr>
+        <tr><td class="en">tracking</td><td class="es">rastreo / seguimiento</td><td style="color:var(--text3);font-size:0.82rem">tracking methods have evolved</td></tr>
+        <tr><td class="en">cookies</td><td class="es">cookies (archivos de seguimiento)</td><td style="color:var(--text3);font-size:0.82rem">blocking cookies alone is not enough</td></tr>
+        <tr><td class="en">VPN</td><td class="es">Red Privada Virtual</td><td style="color:var(--text3);font-size:0.82rem">VPNs remain useful but do not completely hide identity</td></tr>
+        <tr><td class="en">encryption</td><td class="es">encriptación</td><td style="color:var(--text3);font-size:0.82rem">Encryption continues to play a fundamental role</td></tr>
+        <tr><td class="en">metadata</td><td class="es">metadatos</td><td style="color:var(--text3);font-size:0.82rem">encryption mainly protects content, not metadata</td></tr>
+        <tr><td class="en">behavioral data</td><td class="es">datos de comportamiento</td><td style="color:var(--text3);font-size:0.82rem">Behavioral data has become valuable</td></tr>
+        <tr><td class="en">identity correlation</td><td class="es">correlación de identidad</td><td style="color:var(--text3);font-size:0.82rem">the problem of identity correlation</td></tr>
+        <tr><td class="en">incognito mode</td><td class="es">modo incógnito</td><td style="color:var(--text3);font-size:0.82rem">Incognito mode is often misunderstood</td></tr>
+        <tr><td class="en">telemetry</td><td class="es">telemetría (datos enviados automáticamente)</td><td style="color:var(--text3);font-size:0.82rem">generate telemetry and behavioral information</td></tr>
+        <tr><td class="en">layered approach</td><td class="es">enfoque por capas</td><td style="color:var(--text3);font-size:0.82rem">requires a layered approach</td></tr>
+      </table>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">⭐ TOP 30 Palabras para Memorizar</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-en">software</div><div class="vocab-es">programa de computadora</div></div>
+      <div class="vocab-card"><div class="vocab-en">hardware</div><div class="vocab-es">componentes físicos</div></div>
+      <div class="vocab-card"><div class="vocab-en">network</div><div class="vocab-es">red (de computadoras)</div></div>
+      <div class="vocab-card"><div class="vocab-en">database</div><div class="vocab-es">base de datos</div></div>
+      <div class="vocab-card"><div class="vocab-en">interface</div><div class="vocab-es">interfaz / pantalla de usuario</div></div>
+      <div class="vocab-card"><div class="vocab-en">server</div><div class="vocab-es">servidor</div></div>
+      <div class="vocab-card"><div class="vocab-en">storage</div><div class="vocab-es">almacenamiento</div></div>
+      <div class="vocab-card"><div class="vocab-en">access</div><div class="vocab-es">acceso</div></div>
+      <div class="vocab-card"><div class="vocab-en">browser</div><div class="vocab-es">navegador (web)</div></div>
+      <div class="vocab-card"><div class="vocab-en">firewall</div><div class="vocab-es">cortafuegos (seguridad)</div></div>
+      <div class="vocab-card"><div class="vocab-en">backup</div><div class="vocab-es">copia de seguridad</div></div>
+      <div class="vocab-card"><div class="vocab-en">download</div><div class="vocab-es">descargar</div></div>
+      <div class="vocab-card"><div class="vocab-en">upload</div><div class="vocab-es">cargar / subir</div></div>
+      <div class="vocab-card"><div class="vocab-en">malware</div><div class="vocab-es">software malicioso</div></div>
+      <div class="vocab-card"><div class="vocab-en">credentials</div><div class="vocab-es">credenciales / usuario y contraseña</div></div>
+      <div class="vocab-card"><div class="vocab-en">scalable</div><div class="vocab-es">que puede crecer / expandirse</div></div>
+      <div class="vocab-card"><div class="vocab-en">obsolete</div><div class="vocab-es">obsoleto / desactualizado</div></div>
+      <div class="vocab-card"><div class="vocab-en">privacy</div><div class="vocab-es">privacidad</div></div>
+      <div class="vocab-card"><div class="vocab-en">anonymous</div><div class="vocab-es">anónimo</div></div>
+      <div class="vocab-card"><div class="vocab-en">data</div><div class="vocab-es">datos</div></div>
+      <div class="vocab-card"><div class="vocab-en">platform</div><div class="vocab-es">plataforma</div></div>
+      <div class="vocab-card"><div class="vocab-en">profile</div><div class="vocab-es">perfil (de usuario)</div></div>
+      <div class="vocab-card"><div class="vocab-en">identifier</div><div class="vocab-es">identificador</div></div>
+      <div class="vocab-card"><div class="vocab-en">permission</div><div class="vocab-es">permiso</div></div>
+      <div class="vocab-card"><div class="vocab-en">algorithm</div><div class="vocab-es">algoritmo</div></div>
+      <div class="vocab-card"><div class="vocab-en">developer</div><div class="vocab-es">desarrollador</div></div>
+      <div class="vocab-card"><div class="vocab-en">efficient</div><div class="vocab-es">eficiente</div></div>
+      <div class="vocab-card"><div class="vocab-en">monitor</div><div class="vocab-es">monitorear / monitor</div></div>
+      <div class="vocab-card"><div class="vocab-en">expose</div><div class="vocab-es">exponer</div></div>
+      <div class="vocab-card"><div class="vocab-en">protect</div><div class="vocab-es">proteger</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 7 – REFERENCE WORDS ═══════ -->
+<section id="m7">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge red">MÓDULO 07</div>
+      <div>
+        <h4 style="color:var(--text3)">Coherencia textual</h4>
+        <h2>Reference Words — Palabras de Referencia</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">¿Qué son los Reference Words?</h3>
+      <p style="color:var(--text2);font-size:0.92rem">Son palabras que <strong>reemplazan</strong> o hacen referencia a algo mencionado antes en el texto. Su función es evitar repetir las mismas palabras. En el parcial te preguntan: <span class="highlight">"What does 'it' / 'they' / 'these' refer to?"</span></p>
+    </div>
+
+    <div class="table-wrap" style="margin:24px 0">
+      <table>
+        <tr><th>Reference Word</th><th>Se usa para referirse a...</th><th>Español</th></tr>
+        <tr><td class="en" style="font-size:1.1rem">it</td><td style="color:var(--text2)">una cosa o concepto singular</td><td class="es">ello / lo / la</td></tr>
+        <tr><td class="en" style="font-size:1.1rem">they / them</td><td style="color:var(--text2)">personas o cosas en plural</td><td class="es">ellos/ellas / los/las</td></tr>
+        <tr><td class="en" style="font-size:1.1rem">this</td><td style="color:var(--text2)">algo mencionado ANTES (singular/concepto)</td><td class="es">esto / este / esta</td></tr>
+        <tr><td class="en" style="font-size:1.1rem">these</td><td style="color:var(--text2)">cosas mencionadas ANTES (plural)</td><td class="es">estos / estas</td></tr>
+        <tr><td class="en" style="font-size:1.1rem">those</td><td style="color:var(--text2)">cosas más lejanas o mencionadas antes</td><td class="es">aquellos / aquellas</td></tr>
+        <tr><td class="en" style="font-size:1.1rem">which</td><td style="color:var(--text2)">una cosa o idea previa</td><td class="es">que / lo cual</td></tr>
+        <tr><td class="en" style="font-size:1.1rem">their</td><td style="color:var(--text2)">pertenencia de ellos/ellas</td><td class="es">su / sus (de ellos)</td></tr>
+      </table>
+    </div>
+
+    <h3 style="margin-bottom:16px;color:var(--text2)">Ejercicios Resueltos con textos del curso</h3>
+
+    <div class="exercise">
+      <div class="exercise-num">🔍 Ejercicio 1 — TechHelp</div>
+      <p><em>"The team also included a password reminder tool because many students used weak passwords or wrote <span class="highlight">them</span> on paper."</em></p>
+      <p style="color:var(--text3);font-size:0.85rem">¿A qué se refiere <strong>"them"</strong>?</p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div><strong>"them"</strong> refers to <strong>"their passwords"</strong>. / "them" se refiere a <strong>"sus contraseñas"</strong>.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">🔍 Ejercicio 2 — Privacy in 2026</div>
+      <p><em>"Open-source software allows users to access and modify the source code freely. Developers around the world collaborate to improve <span class="highlight">these</span> programs."</em></p>
+      <p style="color:var(--text3);font-size:0.85rem">¿A qué se refiere <strong>"these"</strong>?</p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div><strong>"these"</strong> refers to <strong>"open-source programs"</strong>. / "these" se refiere a <strong>"los programas de código abierto"</strong>.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">🔍 Ejercicio 3 — Privacy in 2026</div>
+      <p><em>"Even if a user changes their IP address or blocks cookies, websites can still recognize <span class="highlight">them</span> through information such as browser type, operating system..."</em></p>
+      <p style="color:var(--text3);font-size:0.85rem">¿A qué se refiere <strong>"them"</strong>?</p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div><strong>"them"</strong> refers to <strong>"users"</strong>. / "them" se refiere a <strong>"los usuarios"</strong>.</div>
+    </div>
+
+    <div class="box trick">
+      <div class="box-icon">🔧</div>
+      <div><div class="box-label">Truco Rápido</div>
+      <p style="font-size:0.88rem">Para encontrar a qué se refiere un reference word: <strong>leé las 1-2 oraciones ANTERIORES</strong> a donde aparece. El antecedente (la palabra a la que se refiere) siempre está antes. Buscá algo que tenga el mismo número (singular/plural) y género.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 8 – SENTENCE ANALYSIS ═══════ -->
+<section id="m8">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge">MÓDULO 08</div>
+      <div>
+        <h4 style="color:var(--text3)">Gramática</h4>
+        <h2>Sentence Analysis — Análisis de Oraciones</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:10px">¿Qué es una oración (sentence)?</h3>
+      <p style="color:var(--text2);font-size:0.92rem">Una oración es una unidad lingüística que: <span class="highlight">comienza con mayúscula</span>, <span class="highlight">termina con punto (u otro signo)</span> y <span class="highlight">comunica una idea completa</span>. Los textos técnicos están organizados en oraciones, y cada oración comunica una idea principal.</p>
+    </div>
+
+    <h3 style="margin:24px 0 16px;color:var(--text2)">Las 3 Partes de la Oración</h3>
+    <div class="card-grid">
+      <div class="card" style="margin:0;border-color:rgba(91,138,245,0.4)">
+        <div style="font-size:2rem;margin-bottom:8px">👤</div>
+        <h3 style="color:var(--accent);margin-bottom:8px">SUBJECT (Sujeto)</h3>
+        <p style="color:var(--text2);font-size:0.88rem"><strong>¿Quién o qué?</strong> realiza la acción. Preguntate: <em>"¿Quién hace la acción?"</em></p>
+        <div style="margin-top:10px;background:var(--surface2);padding:10px;border-radius:8px;font-size:0.82rem">
+          <span class="highlight">The programmer</span> writes code.<br>
+          <span style="color:var(--text3)">El programador escribe código.</span>
+        </div>
+      </div>
+      <div class="card" style="margin:0;border-color:rgba(91,245,195,0.4)">
+        <div style="font-size:2rem;margin-bottom:8px">⚡</div>
+        <h3 style="color:var(--accent4);margin-bottom:8px">VERB (Verbo)</h3>
+        <p style="color:var(--text2);font-size:0.88rem"><strong>La acción o estado.</strong> El verbo es el centro de la oración. Puede indicar: acción, proceso, estado o condición.</p>
+        <div style="margin-top:10px;background:var(--surface2);padding:10px;border-radius:8px;font-size:0.82rem">
+          The software <span class="highlight-teal">detects</span> malware.<br>
+          <span style="color:var(--text3)">El software detecta malware.</span>
+        </div>
+      </div>
+      <div class="card" style="margin:0;border-color:rgba(245,91,138,0.4)">
+        <div style="font-size:2rem;margin-bottom:8px">📦</div>
+        <h3 style="color:var(--accent3);margin-bottom:8px">COMPLEMENT (Complemento)</h3>
+        <p style="color:var(--text2);font-size:0.88rem"><strong>Información extra</strong> sobre la acción. Responde ¿Qué?, ¿A quién?, ¿Dónde?, ¿Cómo?</p>
+        <div style="margin-top:10px;background:var(--surface2);padding:10px;border-radius:8px;font-size:0.82rem">
+          The students created <span class="highlight-pink">a web app to solve problems</span>.<br>
+          <span style="color:var(--text3)">Los estudiantes crearon una app para resolver problemas.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:28px 0 16px;color:var(--text2)">Los 4 Tipos de Oraciones</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipo</th><th>Función</th><th>Español</th><th>Termina en</th><th>Ejemplo técnico</th></tr>
+        <tr>
+          <td class="en">Declarative</td>
+          <td style="color:var(--text2)">Declara un hecho</td>
+          <td class="es">Declarativa</td>
+          <td style="color:var(--text3)">.</td>
+          <td style="color:var(--text3);font-size:0.82rem">The software detects malware.</td>
+        </tr>
+        <tr>
+          <td class="en">Imperative</td>
+          <td style="color:var(--text2)">Da una instrucción/orden</td>
+          <td class="es">Imperativa</td>
+          <td style="color:var(--text3)">. o !</td>
+          <td style="color:var(--text3);font-size:0.82rem">Review your app permissions regularly.</td>
+        </tr>
+        <tr>
+          <td class="en">Interrogative</td>
+          <td style="color:var(--text2)">Hace una pregunta</td>
+          <td class="es">Interrogativa</td>
+          <td style="color:var(--text3)">?</td>
+          <td style="color:var(--text3);font-size:0.82rem">Can users truly remain anonymous?</td>
+        </tr>
+        <tr>
+          <td class="en">Exclamatory</td>
+          <td style="color:var(--text2)">Expresa emoción/énfasis</td>
+          <td class="es">Exclamativa</td>
+          <td style="color:var(--text3)">!</td>
+          <td style="color:var(--text3);font-size:0.82rem">What an enormous amount of information metadata can reveal!</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box summary">
+      <div class="box-icon">📚</div>
+      <div><div class="box-label">Resumen</div>
+      <p style="font-size:0.88rem">En el Inglés Técnico de UTEC, los textos usan principalmente <strong>declarative sentences</strong> (documentación, descripciones de procesos) e <strong>imperative sentences</strong> (manuales, instrucciones). Los textos TechHelp y Privacy in 2026 contienen ejemplos de todos los tipos.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 9 – TECHHELP ═══════ -->
+<section id="m9">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge teal">MÓDULO 09</div>
+      <div>
+        <h4 style="color:var(--text3)">Texto del examen</h4>
+        <h2>TechHelp — Análisis Completo</h2>
+      </div>
+    </div>
+
+    <div class="box important">
+      <div class="box-icon">⚠️</div>
+      <div><div class="box-label">Importante para el parcial</div>
+      <p style="font-size:0.88rem">TechHelp es uno de los textos principales del parcial. Conocelo en profundidad: su estructura, vocabulario, main idea y supporting details.</p></div>
+    </div>
+
+    <h3 style="margin:24px 0 16px;color:var(--text2)">Infografía — Estructura de TechHelp</h3>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="infographic">
+        <div class="info-row">
+          <div class="info-label" style="background:rgba(91,138,245,0.15);color:var(--accent)">🔴 PROBLEM<br><small style="color:var(--text3);font-weight:400">Problema</small></div>
+          <div class="info-content">
+            <ul>
+              <li>Old computers / Computadoras viejas</li>
+              <li>Slow internet / Internet lento</li>
+              <li>Students forgot passwords / Los estudiantes olvidaban contraseñas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-label" style="background:rgba(91,245,195,0.1);color:var(--accent4)">🟢 SOLUTION<br><small style="color:var(--text3);font-weight:400">Solución</small></div>
+          <div class="info-content">
+            <p>A group of first-year students created a simple web app called <strong>"TechHelp"</strong> to solve these problems.</p>
+            <p style="color:var(--text3);font-size:0.82rem;font-style:italic">Un grupo de estudiantes de primer año creó una aplicación web llamada "TechHelp" para resolver estos problemas.</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-label" style="background:rgba(245,192,91,0.1);color:var(--accent5)">⚙️ FUNCTIONS<br><small style="color:var(--text3);font-weight:400">Funciones</small></div>
+          <div class="info-content">
+            <ul>
+              <li>Report problems (broken cables, frozen screens, Wi-Fi issues) / Reportar problemas</li>
+              <li>Organize support requests in one place / Organizar solicitudes de soporte</li>
+              <li>Help the technician decide what to fix first / Ayudar al técnico a priorizar</li>
+              <li>Password reminder tool / Herramienta de recordatorio de contraseñas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-label" style="background:rgba(245,91,138,0.1);color:var(--accent3)">📊 RESULTS<br><small style="color:var(--text3);font-weight:400">Resultados</small></div>
+          <div class="info-content">
+            <ul>
+              <li>Made daily life easier / Hizo la vida diaria más fácil</li>
+              <li>Better organization in the school / Mejor organización escolar</li>
+              <li>Better communication / Mejor comunicación</li>
+              <li>Students used stronger passwords / Los estudiantes usaron contraseñas más fuertes</li>
+              <li>Less time recovering accounts / Menos tiempo recuperando cuentas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-label" style="background:rgba(124,91,245,0.15);color:var(--accent2)">💡 MAIN IDEA<br><small style="color:var(--text3);font-weight:400">Idea principal</small></div>
+          <div class="info-content">
+            <p><strong>"When information is clear and well organized, small problems can be solved more efficiently."</strong></p>
+            <p style="color:var(--text3);font-size:0.82rem;font-style:italic">"Cuando la información es clara y está bien organizada, los pequeños problemas se pueden resolver de manera más eficiente."</p>
+            <p style="color:var(--accent2);font-size:0.85rem;margin-top:8px">→ Technology can improve school organization. / La tecnología puede mejorar la organización escolar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Preguntas Tipo Parcial — TechHelp</h3>
+    
+    <div class="qa-item">
+      <div class="qa-q">What is the text about?</div>
+      <div class="qa-translation">¿De qué trata el texto?</div>
+      <div class="qa-a"><strong>Model answer:</strong> The text is about a group of students who created a web app called TechHelp to solve technology problems at their school, such as old computers, slow internet, and forgotten passwords.<br><span style="color:var(--text3);font-size:0.82rem;font-style:italic">El texto trata sobre un grupo de estudiantes que crearon una aplicación web llamada TechHelp para resolver problemas tecnológicos en su escuela.</span></div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">What is the main idea?</div>
+      <div class="qa-translation">¿Cuál es la idea principal?</div>
+      <div class="qa-a"><strong>Model answer:</strong> The main idea is that technology can improve organization and communication at school. TechHelp helped students report problems more efficiently and made daily life easier.<br><span style="color:var(--text3);font-size:0.82rem;font-style:italic">La idea principal es que la tecnología puede mejorar la organización y comunicación escolar.</span></div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">Mention two supporting details.</div>
+      <div class="qa-translation">Menciona dos detalles de apoyo.</div>
+      <div class="qa-a"><strong>Model answer:</strong><br>1. The app allowed students to report problems such as broken cables, frozen screens, or Wi-Fi issues.<br>2. The password reminder tool helped students use stronger passwords and spend less time recovering access to their accounts.</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">What does "them" refer to in: "...students often forgot their passwords. To solve this, they created..."?</div>
+      <div class="qa-translation">¿A qué se refiere "they"?</div>
+      <div class="qa-a"><strong>Model answer:</strong> "They" refers to <strong>a group of first-year students</strong> at the Instituto Tecnológico.<br><span style="color:var(--text3);font-size:0.82rem">"They" se refiere al grupo de estudiantes de primer año.</span></div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Causa y Efecto — TechHelp</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>CAUSE (Causa)</th><th>EFFECT (Efecto)</th></tr>
+        <tr><td style="color:var(--text2)">Students had slow internet and old computers.</td><td style="color:var(--accent4)">The school needed a digital solution.</td></tr>
+        <tr><td style="color:var(--text2)">Users could report problems in one place.</td><td style="color:var(--accent4)">The technician could decide what to fix first.</td></tr>
+        <tr><td style="color:var(--text2)">Many students used weak passwords.</td><td style="color:var(--accent4)">Students wasted time recovering accounts.</td></tr>
+        <tr><td style="color:var(--text2)">Information was clear and organized.</td><td style="color:var(--accent4)">Small problems could be solved more efficiently.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 10 – PRIVACY IN 2026 ═══════ -->
+<section id="m10">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge pink">MÓDULO 10</div>
+      <div>
+        <h4 style="color:var(--text3)">Texto principal del parcial ⚠️</h4>
+        <h2>Privacy in 2026 — Análisis Completo</h2>
+      </div>
+    </div>
+
+    <div class="box important">
+      <div class="box-icon">🔴</div>
+      <div><div class="box-label">MUY IMPORTANTE</div>
+      <p style="font-size:0.88rem">"Privacy in 2026: Why Hiding Your IP Is No Longer Enough" es el texto más complejo del curso. Analizalo párrafo por párrafo. Este análisis es la base para responder CUALQUIER pregunta del parcial sobre este texto.</p></div>
+    </div>
+
+    <h3 style="margin:24px 0 14px;color:var(--text2)">Párrafo por Párrafo</h3>
+
+    <div class="para-block">
+      <div class="para-num">PÁRRAFO 1 — Introducción: El paradigma cambió</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"A decade ago, online privacy was mostly associated with hiding IP addresses. Today, however, that idea is outdated. Modern digital tracking no longer depends on a single identifier. Instead, companies collect multiple technical and behavioral signals to build detailed profiles of users. Privacy is no longer about becoming invisible online, but about controlling how easily your identity and behavior can be connected over time."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">Hace una década, la privacidad en línea se asociaba principalmente con esconder direcciones IP. Hoy, sin embargo, esa idea está desactualizada. El rastreo digital moderno ya no depende de un único identificador. En cambio, las empresas recopilan múltiples señales técnicas y de comportamiento para construir perfiles detallados de los usuarios. La privacidad ya no se trata de volverse invisible en línea, sino de controlar qué tan fácilmente pueden conectarse tu identidad y comportamiento a lo largo del tiempo.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Hiding your IP is no longer enough for privacy.</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Context Clue</div>"outdated" → Contrast clue: "A decade ago... Today, however"</div>
+          <div class="para-meta-item"><div class="para-meta-label">🔑 Technical Term</div>IP address, digital tracking, behavioral signals, profiles</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-num" style="background:var(--accent2)">PÁRRAFO 2 — Device Fingerprinting</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"One of the biggest changes in recent years is the rise of device fingerprinting. Even if a user changes their IP address or blocks cookies, websites can still recognize them through information such as browser type, operating system, screen resolution, installed fonts, language settings, GPU behavior, and browsing patterns. These signals may appear weak individually, but together they create a unique digital identity."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">Uno de los mayores cambios en los últimos años es el surgimiento de la huella digital del dispositivo. Incluso si un usuario cambia su dirección IP o bloquea las cookies, los sitios web aún pueden reconocerlos a través de información como el tipo de navegador, el sistema operativo, la resolución de pantalla, las fuentes instaladas, la configuración de idioma, el comportamiento de la GPU y los patrones de navegación. Estas señales pueden parecer débiles individualmente, pero juntas crean una identidad digital única.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Device fingerprinting can identify users even without IP.</div>
+          <div class="para-meta-item"><div class="para-meta-label">🔑 Compound Words</div>fingerprinting, browsing patterns, screen resolution</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Reference Word</div>"them" → users / "These signals" → browser type, OS, fonts, etc.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-num" style="background:#0891b2">PÁRRAFO 3 — First-Party Tracking</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"Tracking methods have evolved beyond traditional third-party cookies. Large platforms now rely heavily on first-party tracking, which means they collect information directly through their own services. When users log into accounts, their searches, clicks, purchases, and interactions become connected to a persistent identity. Even users who are not logged in can still be tracked through server-side monitoring and link decoration."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">Los métodos de seguimiento han evolucionado más allá de las cookies de terceros tradicionales. Las plataformas grandes ahora dependen en gran medida del rastreo de primera parte, lo que significa que recopilan información directamente a través de sus propios servicios. Cuando los usuarios inician sesión en sus cuentas, sus búsquedas, clics, compras e interacciones quedan conectadas a una identidad persistente.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Blocking cookies is not enough — first-party tracking still works.</div>
+          <div class="para-meta-item"><div class="para-meta-label">🔑 Technical Terms</div>third-party cookies, first-party tracking, server-side monitoring, link decoration</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Context Clue</div>"which means" → Definition clue explaining first-party tracking</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-num" style="background:#059669">PÁRRAFO 4 — Limitaciones de las herramientas tradicionales</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"Many traditional privacy tools also have important limitations. Incognito mode, for example, is often misunderstood. It does not make users anonymous on the internet because websites and advertising systems can still observe online activity. VPNs remain useful for protecting connections on public Wi-Fi networks or bypassing geographic restrictions, but they do not completely hide identity either."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">Muchas herramientas de privacidad tradicionales también tienen limitaciones importantes. El modo incógnito, por ejemplo, a menudo se malentiende. No hace a los usuarios anónimos en internet porque los sitios web y los sistemas publicitarios todavía pueden observar la actividad en línea. Las VPNs siguen siendo útiles para proteger conexiones en redes Wi-Fi públicas o para eludir restricciones geográficas, pero tampoco ocultan completamente la identidad.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Traditional tools (incognito mode, VPNs) have important limitations.</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Context Clue Type</div>"for example" → EXAMPLE clue for "misunderstood"</div>
+          <div class="para-meta-item"><div class="para-meta-label">⚠️ ERROR FRECUENTE</div>Incognito ≠ anonymous. VPN ≠ total privacy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-num" style="background:#d97706">PÁRRAFO 5 — Encriptación y Metadatos</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"Encryption continues to play a fundamental role in digital security because it protects data while it travels across networks. However, encryption mainly protects content, not metadata. Metadata includes information such as who communicates with whom, when communication happens, how frequently it occurs, and from which locations. These patterns can reveal relationships, routines, and behaviors even without access to the actual messages."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">La encriptación continúa jugando un papel fundamental en la seguridad digital porque protege los datos mientras viajan por las redes. Sin embargo, la encriptación protege principalmente el contenido, no los metadatos. Los metadatos incluyen información como quién se comunica con quién, cuándo ocurre la comunicación, con qué frecuencia y desde qué lugares.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Encryption protects content but NOT metadata.</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Context Clue</div>"Metadata includes information such as..." → EXAMPLE clue defining metadata</div>
+          <div class="para-meta-item"><div class="para-meta-label">🔑 Technical Terms</div>encryption, metadata, HTTPS, end-to-end encrypted</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-num" style="background:#dc2626">PÁRRAFO 6 — Los dispositivos como fuentes de datos</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"Modern devices themselves have become major sources of data collection. Smartphones, laptops, smart TVs, and connected home devices constantly generate telemetry and behavioral information. Operating systems collect usage statistics, applications request extensive permissions, and background services transmit location data and activity patterns."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">Los dispositivos modernos en sí mismos se han convertido en fuentes importantes de recopilación de datos. Los smartphones, laptops, televisores inteligentes y dispositivos del hogar conectados generan constantemente información de telemetría y de comportamiento. Los sistemas operativos recopilan estadísticas de uso, las aplicaciones solicitan permisos extensivos y los servicios en segundo plano transmiten datos de ubicación.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Your devices are constantly collecting data about you.</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Context Clue</div>"Smartphones, laptops, smart TVs..." → EXAMPLE of "modern devices"</div>
+          <div class="para-meta-item"><div class="para-meta-label">💡 Imperative sentence</div>"Review your app permissions regularly and limit unnecessary access."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="para-block">
+      <div class="para-num" style="background:var(--accent2)">CONCLUSIÓN — Privacidad proporcional</div>
+      <div class="para-body">
+        <div class="analysis-label">TEXTO ORIGINAL</div>
+        <div class="para-original">"Effective privacy protection requires a layered approach. No single tool can provide complete privacy. Instead, users must combine different strategies. The objective is not to disappear completely from digital systems, but to make constant monitoring harder over time. Most people do not seek total anonymity. Instead, they aim for proportional privacy by protecting the information that matters most while accepting a limited level of exposure in exchange for convenience."</div>
+        <div class="analysis-label">TRADUCCIÓN</div>
+        <div class="para-translation">La protección efectiva de la privacidad requiere un enfoque por capas. Ninguna herramienta puede proporcionar privacidad completa. En cambio, los usuarios deben combinar diferentes estrategias. El objetivo no es desaparecer completamente de los sistemas digitales, sino hacer que el monitoreo constante sea más difícil con el tiempo. La mayoría de las personas busca privacidad proporcional: proteger la información que más importa mientras acepta un nivel limitado de exposición a cambio de conveniencia.</div>
+        <div class="para-meta">
+          <div class="para-meta-item"><div class="para-meta-label">🎯 Main Idea</div>Privacy requires a layered approach — no single tool is enough.</div>
+          <div class="para-meta-item"><div class="para-meta-label">🔑 Key Concept</div>Proportional privacy = proteger lo que más importa</div>
+          <div class="para-meta-item"><div class="para-meta-label">📋 Contrast Clue</div>"Instead" indicates contrast between total anonymity and proportional privacy</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Resumen Final — Privacy in 2026</h3>
+    <div class="box summary">
+      <div class="box-icon">📚</div>
+      <div>
+        <div class="box-label">Resumen del texto completo</div>
+        <p style="font-size:0.88rem"><strong>General Meaning:</strong> The text is about digital privacy in 2026 and why traditional methods are no longer enough to protect personal information online.<br><br><strong>Main Idea:</strong> In 2026, effective privacy requires understanding and combining multiple strategies, because digital tracking has become much more sophisticated than just monitoring IP addresses.<br><br><strong>Supporting Details:</strong> Device fingerprinting, first-party tracking, metadata collection, behavioral data, and device telemetry all make traditional privacy tools (VPNs, incognito mode) insufficient on their own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 11 – PREGUNTAS TÍPICAS ═══════ -->
+<section id="m11">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge orange">MÓDULO 11</div>
+      <div>
+        <h4 style="color:var(--text3)">Para el examen</h4>
+        <h2>Preguntas Típicas del Parcial</h2>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">1. What is the text about?</div>
+      <div class="qa-translation">¿De qué trata el texto?</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> El general meaning / tema general del texto.<br>
+        <strong>Cómo responder:</strong> "The text is about + [tema general en 1-2 oraciones]"<br><br>
+        <strong>Respuesta modelo (TechHelp):</strong> The text is about a group of students who created a web app called TechHelp to solve common technology problems at their school.<br>
+        <strong>Respuesta modelo (Privacy 2026):</strong> The text is about digital privacy in 2026 and why traditional methods like hiding an IP address or using a VPN are no longer sufficient to protect personal information.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">2. What is the main idea of the text?</div>
+      <div class="qa-translation">¿Cuál es la idea principal del texto?</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> El mensaje MÁS IMPORTANTE del texto, no un detalle.<br>
+        <strong>Cómo responder:</strong> "The main idea is that + [idea principal completa]"<br><br>
+        <strong>Respuesta modelo (TechHelp):</strong> The main idea is that technology can improve school organization and communication. TechHelp helped students solve everyday technical problems more efficiently.<br>
+        <strong>Respuesta modelo (Privacy 2026):</strong> The main idea is that effective privacy in 2026 requires a layered approach, since no single tool can protect a user's identity from modern tracking methods.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">3. Mention two supporting details.</div>
+      <div class="qa-translation">Menciona dos detalles de apoyo.</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> Ejemplos, razones o hechos que APOYAN la idea principal.<br>
+        <strong>Cómo responder:</strong> Dos oraciones completas que digan "One supporting detail is that... Another is that..."<br><br>
+        <strong>Respuesta modelo:</strong><br>
+        1. One supporting detail is that the app allowed users to report problems such as broken cables, frozen screens, or Wi-Fi issues in one place.<br>
+        2. Another supporting detail is that the password reminder tool helped students use stronger passwords and spend less time recovering access to their accounts.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">4. Find a technical term in the text.</div>
+      <div class="qa-translation">Encuentra un término técnico en el texto.</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> Una palabra o frase específica del campo de la informática/tecnología.<br>
+        <strong>Cómo responder:</strong> Nombrar el término y explicar brevemente qué significa.<br><br>
+        <strong>Respuesta modelo (TechHelp):</strong> A technical term found in the text is "web app", which refers to a digital application that works through a web browser.<br>
+        <strong>Respuesta modelo (Privacy 2026):</strong> A technical term found in the text is "device fingerprinting", which refers to the method of identifying a user through specific characteristics of their device, such as browser type and screen resolution.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">5. Find a compound word in the text.</div>
+      <div class="qa-translation">Encuentra una palabra compuesta en el texto.</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> Dos palabras unidas que forman un nuevo concepto.<br>
+        <strong>Cómo responder:</strong> Nombrar la compound word, decir sus partes y su significado.<br><br>
+        <strong>Respuesta modelo:</strong> A compound word found in the text is "password" (pass + word = contraseña). Another example is "touchscreen" (touch = tocar + screen = pantalla = pantalla táctil).
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">6. What does "these" / "they" / "it" refer to?</div>
+      <div class="qa-translation">¿A qué se refiere "these" / "they" / "it"?</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> El antecedente (la palabra o idea a la que reemplaza el pronombre).<br>
+        <strong>Cómo responder:</strong> "[Pronoun] refers to [antecedent]."<br><br>
+        <strong>Respuesta modelo:</strong> "These" refers to the signals mentioned before (browser type, operating system, screen resolution, etc.). Together, these signals create a unique digital identity.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">7. Identify a cause and effect relationship.</div>
+      <div class="qa-translation">Identifica una relación de causa y efecto.</div>
+      <div class="qa-a">
+        <strong>Qué pregunta realmente:</strong> Un evento o situación (causa) que produce otro resultado (efecto).<br>
+        <strong>Cómo responder:</strong> "The cause is [X]. The effect is [Y]." o usar "because / therefore / as a result".<br><br>
+        <strong>Respuesta modelo (Privacy 2026):</strong> The cause is that users log into their accounts on large platforms. The effect is that their searches, clicks, and purchases become connected to a persistent identity, making them easier to track.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 12 – SIMULACROS ═══════ -->
+<section id="m12">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge purple">MÓDULO 12</div>
+      <div>
+        <h4 style="color:var(--text3)">Práctica</h4>
+        <h2>Simulacros de Examen</h2>
+      </div>
+    </div>
+
+    <div class="box tip">
+      <div class="box-icon">💡</div>
+      <div><div class="box-label">Tip de Examen</div>
+      <p style="font-size:0.88rem">Primero intentá responder vos mismo, después verificá con las respuestas. Estudiar activamente es mucho más efectivo que solo leer.</p></div>
+    </div>
+
+    <h3 style="margin:20px 0 14px;color:var(--text2)">Parte A — Ejercicios Resueltos</h3>
+
+    <div class="exercise">
+      <div class="exercise-num">✅ Ejercicio Resuelto 1</div>
+      <p>Read: <em>"Cloud computing allows users to store and access data through the internet instead of relying on local storage devices. Many companies prefer cloud-based services because they are flexible, scalable and cost-effective."</em></p>
+      <p><strong>Q: Why do companies prefer cloud-based services?</strong></p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div>Companies prefer cloud-based services because they are flexible, scalable and cost-effective. / Las empresas prefieren los servicios basados en la nube porque son flexibles, escalables y rentables.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">✅ Ejercicio Resuelto 2</div>
+      <p>Read: <em>"A firewall protects a computer network from unauthorized access and malicious attacks."</em></p>
+      <p><strong>Q: What is a firewall? What context clue helped you?</strong></p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div>A firewall is a security system/program that protects a network from unauthorized access and attacks. The context clue type is DEFINITION — the sentence itself explains what a firewall does through the verb "protects".</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">✅ Ejercicio Resuelto 3</div>
+      <p>Read: <em>"Unlike desktop computers, laptops are lightweight and portable."</em></p>
+      <p><strong>Q: What does "lightweight" mean? What context clue type is used?</strong></p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div>"Lightweight" means not heavy / easy to carry. The context clue type is CONTRAST — the word "unlike" compares laptops with desktop computers, implying they have opposite qualities.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">✅ Ejercicio Resuelto 4 — Word Formation</div>
+      <p>Analyze the word: <strong>"downloadable"</strong></p>
+      <p><strong>Q: Identify prefix, root, and suffix. What does it mean?</strong></p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div>Prefix: none. Root: <strong>download</strong>. Suffix: <strong>-able</strong> (capable of). Meaning: "able to be downloaded" / que puede descargarse.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">✅ Ejercicio Resuelto 5 — Reference Words</div>
+      <p>Read: <em>"Open-source software allows users to access and modify the source code freely. Developers around the world collaborate to improve <strong>these</strong> programs."</em></p>
+      <p><strong>Q: What does "these" refer to?</strong></p>
+      <div class="answer"><div class="answer-label">✅ Respuesta</div>"These" refers to "open-source programs" mentioned in the previous sentence. / "These" se refiere a los "programas de código abierto" mencionados en la oración anterior.</div>
+    </div>
+
+    <h3 style="margin:28px 0 14px;color:var(--text2)">Parte B — Ejercicios para Practicar</h3>
+    <p style="color:var(--text2);font-size:0.88rem;margin-bottom:16px">Intentá responder estos ejercicios antes de ver las respuestas.</p>
+
+    <div class="exercise">
+      <div class="exercise-num">📝 Ejercicio 1 — Para practicar</div>
+      <p>Read: <em>"The browser automatically stored the user's credentials, such as usernames and passwords."</em></p>
+      <p><strong>Q: What are "credentials"? What context clue type is used?</strong></p>
+      <div class="answer" style="background:rgba(91,138,245,0.05);border-left:3px solid rgba(91,138,245,0.3)"><div class="answer-label" style="color:var(--text3)">🔍 Respuesta</div>Credentials = login information / usernames and passwords. Context clue type: EXAMPLE ("such as usernames and passwords" gives examples of what credentials are).</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">📝 Ejercicio 2 — Para practicar</div>
+      <p>Read: <em>"The software became obsolete after the company released a newer version."</em></p>
+      <p><strong>Q: What does "obsolete" mean? What context clue helped?</strong></p>
+      <div class="answer" style="background:rgba(91,138,245,0.05);border-left:3px solid rgba(91,138,245,0.3)"><div class="answer-label" style="color:var(--text3)">🔍 Respuesta</div>"Obsolete" = old / no longer useful or modern. Context clue type: INFERENCE — "after the company released a newer version" implies the old software became outdated/unnecessary.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">📝 Ejercicio 3 — Para practicar</div>
+      <p>Based on the TechHelp text: <strong>What is the main topic? What is the main idea? Mention one supporting detail.</strong></p>
+      <div class="answer" style="background:rgba(91,138,245,0.05);border-left:3px solid rgba(91,138,245,0.3)"><div class="answer-label" style="color:var(--text3)">🔍 Respuesta</div><strong>Topic:</strong> School technology and problem solving. <strong>Main Idea:</strong> Technology (TechHelp app) can improve organization and communication at school. <strong>Supporting Detail:</strong> The app allowed students to report problems such as broken cables, frozen screens, or Wi-Fi issues in one place, helping the technician prioritize fixes.</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">📝 Ejercicio 4 — Para practicar</div>
+      <p>Analyze this sentence from Privacy in 2026: <em>"Encryption continues to play a fundamental role in digital security because it protects data while it travels across networks."</em></p>
+      <p><strong>Q: Identify: 1) Sentence type, 2) Subject, 3) Main verb, 4) What "it" refers to.</strong></p>
+      <div class="answer" style="background:rgba(91,138,245,0.05);border-left:3px solid rgba(91,138,245,0.3)"><div class="answer-label" style="color:var(--text3)">🔍 Respuesta</div>1) Declarative sentence. 2) Subject: "Encryption". 3) Main verb: "continues (to play)". 4) "it" (first) refers to "Encryption"; "it" (second) refers to "data".</div>
+    </div>
+
+    <div class="exercise">
+      <div class="exercise-num">📝 Ejercicio 5 — Para practicar</div>
+      <p><strong>Analyze the word "misinformation":</strong> Identify prefix, root word, suffix and total meaning.</p>
+      <div class="answer" style="background:rgba(91,138,245,0.05);border-left:3px solid rgba(91,138,245,0.3)"><div class="answer-label" style="color:var(--text3)">🔍 Respuesta</div>Prefix: <span style="color:#c4b5fd">mis-</span> (wrong/bad). Root: <span style="color:#a5b4fc">inform</span>. Suffix: <span style="color:#6ee7b7">-ation</span> (action/state). Meaning: false or incorrect information / información falsa o incorrecta.</div>
+    </div>
+  </div>
+</section>
+
+<div class="module-divider"></div>
+
+<!-- ═══════ MÓDULO 13 – CHULETA FINAL ═══════ -->
+<section id="m13">
+  <div class="container">
+    <div class="section-header">
+      <div class="module-badge" style="background:var(--accent3)">MÓDULO 13</div>
+      <div>
+        <h4 style="color:var(--text3)">Repaso express</h4>
+        <h2>Chuleta Final ⚡</h2>
+      </div>
+    </div>
+
+    <div class="cheat">
+      <h2 style="margin-bottom:24px;color:var(--accent)">🧠 Todo lo que necesitás recordar</h2>
+      
+      <div class="cheat-grid">
+        <div class="cheat-section">
+          <h4>📋 Fórmulas para responder</h4>
+          <div class="cheat-item"><span class="cheat-bullet">→</span><span><strong>What is the text about?</strong><br>"The text is about + [tema]"</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">→</span><span><strong>Main idea?</strong><br>"The main idea is that + [mensaje]"</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">→</span><span><strong>Supporting detail?</strong><br>"One detail is that + [ejemplo/razón]"</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">→</span><span><strong>Reference word?</strong><br>"'X' refers to [antecedente]"</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">→</span><span><strong>Technical term?</strong><br>"[Term] refers to / means [definición]"</span></div>
+        </div>
+
+        <div class="cheat-section">
+          <h4>🔍 Context Clues — Señales</h4>
+          <div class="cheat-item"><span class="cheat-bullet">📘</span><span><strong>DEFINITION:</strong> is, means, refers to, is called</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📗</span><span><strong>EXAMPLE:</strong> such as, like, for example, e.g.</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📙</span><span><strong>CONTRAST:</strong> unlike, but, however, although</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📕</span><span><strong>INFERENCE:</strong> ninguna señal específica, usá lógica</span></div>
+        </div>
+
+        <div class="cheat-section">
+          <h4>🏗️ Word Formation</h4>
+          <div class="cheat-item"><span class="cheat-bullet">🟣</span><span><strong>re-</strong> = de nuevo (reusable)</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟣</span><span><strong>un-</strong> = no (unauthorized)</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟣</span><span><strong>mis-</strong> = mal (misinformation)</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟢</span><span><strong>-able</strong> = puede ser (downloadable)</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟢</span><span><strong>-er</strong> = quien lo hace (programmer)</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟢</span><span><strong>-less</strong> = sin (wireless)</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟢</span><span><strong>-ity</strong> = cualidad (security)</span></div>
+        </div>
+
+        <div class="cheat-section">
+          <h4>📝 Tipos de Oraciones</h4>
+          <div class="cheat-item"><span class="cheat-bullet">1</span><span><strong>Declarative:</strong> hechos, termina en "."</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">2</span><span><strong>Imperative:</strong> instrucciones, sin sujeto</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">3</span><span><strong>Interrogative:</strong> pregunta, termina en "?"</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">4</span><span><strong>Exclamatory:</strong> emoción, termina en "!"</span></div>
+        </div>
+
+        <div class="cheat-section">
+          <h4>🔒 Privacy 2026 — Conceptos Clave</h4>
+          <div class="cheat-item"><span class="cheat-bullet">📌</span><span>IP hiding alone ≠ privacy</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📌</span><span>Device fingerprinting puede identificarte</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📌</span><span>Incognito ≠ anonymous</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📌</span><span>VPN ≠ total privacy</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📌</span><span>Encryption protege contenido, no metadata</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📌</span><span>Se necesita enfoque por capas (layered approach)</span></div>
+        </div>
+
+        <div class="cheat-section">
+          <h4>💻 TechHelp — Conceptos Clave</h4>
+          <div class="cheat-item"><span class="cheat-bullet">🔴</span><span>Problema: old computers, slow internet, weak passwords</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">🟢</span><span>Solución: app TechHelp creada por estudiantes</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">⚙️</span><span>Funciones: reportar, organizar, password tool</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">📊</span><span>Resultado: mejor organización y comunicación</span></div>
+          <div class="cheat-item"><span class="cheat-bullet">💡</span><span>Main idea: tech mejora organización escolar</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
+        <h3 style="color:var(--accent3);margin-bottom:16px">❌ Errores Frecuentes que Hay que Evitar</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+          <div style="background:rgba(245,91,138,0.08);border:1px solid rgba(245,91,138,0.2);border-radius:8px;padding:14px">
+            <div style="color:var(--accent3);font-weight:700;font-size:0.82rem;margin-bottom:6px">❌ ERROR</div>
+            <p style="font-size:0.85rem">Confundir <strong>main idea</strong> con un <strong>supporting detail</strong>. La main idea es lo más general; los detalles son ejemplos o razones.</p>
+          </div>
+          <div style="background:rgba(245,91,138,0.08);border:1px solid rgba(245,91,138,0.2);border-radius:8px;padding:14px">
+            <div style="color:var(--accent3);font-weight:700;font-size:0.82rem;margin-bottom:6px">❌ ERROR</div>
+            <p style="font-size:0.85rem">Buscar el antecedente de un reference word en oraciones SIGUIENTES. El antecedente siempre está ANTES.</p>
+          </div>
+          <div style="background:rgba(245,91,138,0.08);border:1px solid rgba(245,91,138,0.2);border-radius:8px;padding:14px">
+            <div style="color:var(--accent3);font-weight:700;font-size:0.82rem;margin-bottom:6px">❌ ERROR</div>
+            <p style="font-size:0.85rem">Decir que "VPN" o "incognito mode" dan privacidad total. El texto dice claramente que NO son suficientes solos.</p>
+          </div>
+          <div style="background:rgba(245,91,138,0.08);border:1px solid rgba(245,91,138,0.2);border-radius:8px;padding:14px">
+            <div style="color:var(--accent3);font-weight:700;font-size:0.82rem;margin-bottom:6px">❌ ERROR</div>
+            <p style="font-size:0.85rem">Responder preguntas con solo una palabra. Siempre responder con oraciones completas en inglés.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px;padding:20px;background:rgba(91,138,245,0.1);border-radius:var(--radius);border:1px solid rgba(91,138,245,0.3)">
+        <h3 style="color:var(--accent);margin-bottom:12px">⭐ Consejos para Aprobar el Parcial</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+          <div style="font-size:0.85rem;color:var(--text2)">✅ Leé el texto completo ANTES de responder</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ Leé las preguntas ANTES de releer</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ Respondé con oraciones completas</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ Usá palabras del texto en tus respuestas</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ No traduzcas todo — capturá el mensaje</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ Usá context clues para palabras desconocidas</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ Para reference words, leé las oraciones ANTERIORES</div>
+          <div style="font-size:0.85rem;color:var(--text2)">✅ La main idea es el punto MÁS GENERAL</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:40px 0 20px;color:var(--text3)">
+      <p style="font-size:0.88rem">Guía Definitiva de Inglés Técnico · UTEC Tecnólogo en Informática · Prof. Lucas Castillo</p>
+      <p style="font-size:0.78rem;margin-top:6px;color:var(--surface3)">Elaborada a partir del material oficial del curso · 2026</p>
+    </div>
+  </div>
+</section>
+
+<a class="back-top" href="#top" title="Volver arriba">↑</a>
+
+</body>
+</html>
